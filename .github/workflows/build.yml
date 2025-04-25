@@ -16,10 +16,11 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.1
       
-    - name: Setup Windows SDK
-      uses: GuillaumeFalourd/setup-windows-sdk-action@v1.1.1
+    - name: Setup Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@v1
       with:
-        sdk-version: 10.0.22000.0
+        arch: x86
+        sdk: 10.0.22000.0
       
     - name: Build Solution
       run: |
