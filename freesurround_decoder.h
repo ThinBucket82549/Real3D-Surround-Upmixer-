@@ -96,7 +96,7 @@ public:
 	*				   than 5ms to 20ms since the granularity at which locations are decoded 
 	*				   changes with this.
 	*/
-	freesurround_decoder(channel_setup setup=cs_5point1, unsigned blocksize=4096);
+	freesurround_decoder(channel_setup setup=cs_5point1, unsigned blocksize=32768);
 	~freesurround_decoder();
 
 	/**
@@ -124,9 +124,9 @@ public:
 	/**
 	* Allows to wrap the soundfield around the listener in a circular manner.
 	* Determines the angle of the frontal sound stage relative to the listener, in degrees.
-	* A setting of 90° corresponds to standard surround decoding, 180° stretches the front stage from 
-	* ear to ear, 270° wraps it around most of the head. The side and rear content of the sound 
-	* field is compressed accordingly behind the listerer. (default: 90, range: [0°..360°])
+	* A setting of 90ï¿½ corresponds to standard surround decoding, 180ï¿½ stretches the front stage from 
+	* ear to ear, 270ï¿½ wraps it around most of the head. The side and rear content of the sound 
+	* field is compressed accordingly behind the listerer. (default: 90, range: [0ï¿½..360ï¿½])
 	*/
 	void circular_wrap(float v);
 

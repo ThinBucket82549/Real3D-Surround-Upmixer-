@@ -95,7 +95,7 @@ struct freesurround_params {
 
 // the FreeSurround DSP plugin class
 class freesurround_dsp: public dsp_impl_base {
-	enum { chunk_size = 4096 };
+	enum { chunk_size = 32768 };
 public:
 	// construct the plugin instance from a preset
 	freesurround_dsp(const dsp_preset &in): params(in), rechunker(boost::bind(&freesurround_dsp::process_chunk,this,_1), chunk_size*2), 
