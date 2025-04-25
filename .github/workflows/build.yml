@@ -27,7 +27,7 @@ jobs:
         msbuild.exe foo_dsp_fsurround.sln /p:Configuration=Release /p:Platform=x86 /p:PlatformToolset=v143
         
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Real3D-Surround-Upmixer
         path: |
