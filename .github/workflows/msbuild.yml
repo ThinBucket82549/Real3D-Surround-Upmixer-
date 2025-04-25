@@ -1,0 +1,34 @@
+name: Build Real3D-Surround-Upmixer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Setup Windows SDK
+      uses: GuillaumeFalourd/setup-windows-sdk-action@v1.1.1
+      with:
+        sdk-version: 10.0.22000.0
+      
+    - name: Build Solution
+      run: |
+        msbuild.exe foo_dsp_fsurround.sln /p:Configuration=Release /p:Platform=x86 /p:PlatformToolset=v143
+        
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Real3D-Surround-Upmixer
+        path: |
+          Release/*.dll
+          Release/*.exe
